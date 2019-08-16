@@ -1,0 +1,29 @@
+#project-root {
+  height: calc(90vh - 82px);
+}
+
+.project-container {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  display: flex;
+}
+
+.project-column {
+  flex: 1;
+  background-color: green;
+  border: 1px dashed white;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.dragbox {
+  width: 90%;
+  height: 100px;
+  background-color: blue;
+  border-radius: 6px;
+  border: 1px solid white;
+  padding: 6px;
+  margin: 6px;
+}
