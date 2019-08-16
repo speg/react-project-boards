@@ -23,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/speg/react-project-boards/issues"
   },
-  "homepage": "https://github.com/speg/react-project-boards#readme"
+  "homepage": "https://github.com/speg/react-project-boards#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rollup": "^1.19.4",
+    "typescript": "^3.5.3"
+  }
 }
