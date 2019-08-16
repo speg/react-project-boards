@@ -26,11 +26,14 @@ function ProjectContainer(props) {
   return e('div', {className: 'project-container'}, props.children);
 }
 
-function DragBox(props) {
-  // console.log('rendering dragbox!')
-  return e('div', {className: 'dragbox', draggable: true}, props.children);
-  // return e('div', {className: 'dragbox', draggable: true, onDragStart: handleDrag}, props.children);
-}
+const DragBox = React.memo(function DragBox(props) {
+  const onDragStart = (e) => {
+    console.log('Dragbox DragStart', e);
+    e.projectBoard = {id: 42}
+  }
+
+  return e('div', {className: 'dragbox', draggable: true, onDragStart}, props.children);
+})
 
 // function onDragEnd(e) {
 //   console.log('drag ended', e)
