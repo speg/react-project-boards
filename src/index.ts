@@ -1,10 +1,8 @@
+// import { render } from "react-dom";
+// import { createElement as e } from "react";
+
 import Box from "./components/Box";
 
-function say(what:any) {
-  console.log(what);
-  return Box(1, 2);
-}
+// render(e(Box, {}), document.getElementById('project-root'));
 
-const q = say("hi")
-
-console.log(q)
+export default Box;
