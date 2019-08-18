@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest",
     "prestart": "jest",
-    "start": "parcel index.html",
-    "build": "tsc"
+    "start": "tsc -p tsconfig.dev.json"
   },
   "repository": {
     "type": "git",
@@ -27,24 +26,13 @@
   },
   "homepage": "https://github.com/speg/react-project-boards#readme",
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.9.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/parser": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/types": "^7.5.5",
     "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.8.5",
-    "csstype": "^2.6.6",
     "jest": "^24.9.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {
-    "help": "^3.0.2"
-  }
+  "dependencies": {}
 }
