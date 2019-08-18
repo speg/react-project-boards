@@ -4,13 +4,17 @@
       "removeComments": true,
       "preserveConstEnums": true,
       "sourceMap": false,
-      "outFile": "demo/bundle.js",
-      "module": "System",
+      "outDir": "lib",
+      "module": "commonjs",
       "target": "ES5",
       "lib": ["ES6", "dom"],
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "watch": true
   },
   "include": [
         "src/**/*"
+  ],
+  "exclude": [
+        "tests"
   ]
 }

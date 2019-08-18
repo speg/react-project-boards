@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "prestart": "jest",
-    "start": "tsc -p tsconfig.dev.json"
+    "start": "tsc"
   },
   "repository": {
     "type": "git",

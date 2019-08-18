@@ -20,4 +20,4 @@ Woohoo. Oh wait - now hooks are complaining about two versions of React 🤯. [T
 
 Spent some time trying to get a single page (systemjs or amd) working, but realzing that may be a fools errand
 as they depend on React. How to link to the dev React loaded on the demo page when compiling code? Don't think
-that's going to work... Will have to load it up in the create-react-app application to test in browser.
+that's going to work... Will have to load it up in the create-react-app application to test in browser. I guess the dev config is useless then.
