@@ -17,3 +17,7 @@ Now it's complaning about Babel. I didn't want to use Babel! Is parcel requiring
 
 Finally got my componenet loading into another demo app! Compiled my source with TSC into ES6 and it just worked?!
 Woohoo. Oh wait - now hooks are complaining about two versions of React 🤯. [This](https://reactjs.org/warnings/invalid-hook-call-warning.html) fixed me up in a few minutes. Phew.
+
+Spent some time trying to get a single page (systemjs or amd) working, but realzing that may be a fools errand
+as they depend on React. How to link to the dev React loaded on the demo page when compiling code? Don't think
+that's going to work... Will have to load it up in the create-react-app application to test in browser.
