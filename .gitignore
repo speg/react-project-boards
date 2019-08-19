@@ -3,4 +3,4 @@ dist
 node_modules
 .cache
 lib
-bundle.js
+bundle.js*
