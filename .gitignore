@@ -1,1 +1,5 @@
-local
+dist
+node_modules
+.cache
+lib
+bundle.js*
