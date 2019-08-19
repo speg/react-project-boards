@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "prestart": "jest",
-    "start": "tsc -p tsconfig.dev.json"
+    "start": "tsc -p tsconfig.dev.json",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,11 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.8.5",
     "jest": "^24.9.0",
     "react": "^16.9.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }

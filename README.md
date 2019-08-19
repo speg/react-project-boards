@@ -21,3 +21,6 @@ Woohoo. Oh wait - now hooks are complaining about two versions of React 🤯. [T
 Spent some time trying to get a single page (systemjs or amd) working, but realzing that may be a fools errand
 as they depend on React. How to link to the dev React loaded on the demo page when compiling code? Don't think
 that's going to work... Will have to load it up in the create-react-app application to test in browser. I guess the dev config is useless then.
+
+Ok after a nights sleep I've got the browser working for development. Export everything to AMD. Then, using requirejs paths, specify they React and React-Dom libraries. Even better? Name them as per their AMD module names and you don't need any config. Boom.
+
