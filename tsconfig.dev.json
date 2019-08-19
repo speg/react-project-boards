@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "amd",
+        "outFile": "demo/bundle.js",
+        "watch": true,
+        "sourceMap": true
+    },
+    "exclude": [
+        "tests"
+  ]
+}

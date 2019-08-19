@@ -1,0 +1,41 @@
+{
+  "name": "react-project-boards",
+  "version": "0.0.1",
+  "description": "a react toy kanban board",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "prestart": "jest",
+    "start": "tsc -p tsconfig.dev.json",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speg/react-project-boards.git"
+  },
+  "keywords": [
+    "react",
+    "project",
+    "board",
+    "kanban"
+  ],
+  "files": "dist",
+  "author": "speg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/speg/react-project-boards/issues"
+  },
+  "homepage": "https://github.com/speg/react-project-boards#readme",
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.8.5",
+    "jest": "^24.9.0",
+    "react": "^16.9.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+  }
+}
