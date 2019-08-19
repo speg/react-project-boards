@@ -9,7 +9,7 @@
       "target": "ES5",
       "lib": ["ES6", "dom"],
       "moduleResolution": "node",
-      "watch": true
+      "watch": false
   },
   "include": [
         "src/**/*"
