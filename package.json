@@ -9,7 +9,7 @@
     "start": "tsc -p tsconfig.dev.json & echo $! > tsc.pid",
     "poststart": "python3 -m http.server --directory demo & echo $! > python.pid",
     "build": "tsc",
-    "stop": "pkill -F python.pid && pkill -F tsc.pid"
+    "stop": "pkill -F python.pid && pkill -F tsc.pid && rm -fv *.pid"
   },
   "repository": {
     "type": "git",

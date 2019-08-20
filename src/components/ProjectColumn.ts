@@ -7,6 +7,23 @@ function handleDragOver(ev) {
   return false;
 }
 
+function cardToBox(cardInfo) {
+  let title;
+  switch (typeof cardInfo) {
+    case "string":
+      title = cardInfo
+      break;
+    case "object":
+      title = cardInfo.title || "UNTITLED"
+      break;
+    default:
+      title = "EMPTY"
+      break;
+  }
+
+  return e(DragBox, {}, title)
+}
+
 function ProjectColumn(props) {
   const [items, setItems] = useState(() => [...props.cards]);
   const [dragging, setDragging] = useState(() => null); // the current item being moved
@@ -46,7 +63,7 @@ function ProjectColumn(props) {
   }, [items]);
 
   const boxes = useMemo(() => {
-    return items.map(i => e(DragBox, {}, i));
+    return items.map(cardToBox);
   }, [items.length]);
 
   return e('div', {
