@@ -2,6 +2,12 @@ import { createElement as e, useState, useCallback, useMemo } from 'react'
 import DragBox from "./DragBox"
 import AddButton from "./AddButton"
 
+function dialog(text) {
+  // A placeholder for a fancier dialog system. Maybe with a promise?
+  // This is probably out of scope.
+  return prompt(text)
+}
+
 function handleDragOver(ev) {
   ev.preventDefault();
   return false;
@@ -58,13 +64,8 @@ function ProjectColumn(props) {
      return false;
    }, [items.length, dragging]);
 
-  const addItem = useCallback(() => {
-      setItems([...items, prompt('New Card?')]);
-  }, [items]);
-
-  const boxes = useMemo(() => {
-    return items.map(cardToBox);
-  }, [items.length]);
+  const onClick = useCallback(() => setItems([...items, dialog('New card?')]), [items]);
+  const boxes = useMemo(() => items.map(cardToBox), [items.length]);
 
   return e('div', {
           className: 'project-column',
@@ -73,7 +74,7 @@ function ProjectColumn(props) {
           onDragOver: handleDragOver,
           onDrop: handleDrop
       },
-      e(AddButton, {onClick: addItem}),
+      e(AddButton, {onClick}),
       ...boxes
     );
 }
