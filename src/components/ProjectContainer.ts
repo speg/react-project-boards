@@ -2,7 +2,7 @@ import { createElement as e } from 'react'
 import ProjectColumn from "./ProjectColumn"
 
 function ProjectContainer(props) {
-  const children = props.data.map(cards => e(ProjectColumn, {cards}))
+  const children = props.data.map((cards, i) => e(ProjectColumn, {key: i, cards}))
   return e('div', {className: 'project-container'}, children);
 }
 

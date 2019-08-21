@@ -4,7 +4,6 @@ import AddButton from "./AddButton"
 
 function handleDragOver(ev) {
   ev.preventDefault();
-  // console.log('Handling Drag Over', e);
   return false;
 }
 
@@ -19,14 +18,12 @@ function ProjectColumn(props) {
     }, [items.length]);
 
    const onDragStart = useCallback(ev => {
-     ev.dataTransfer.setData("text/plain", ev.target.innerHTML);
-     setDragging(ev.target.innerHTML);
-     console.log('Starting drag', props.name, ev.target.innerHTML)
+     ev.dataTransfer.setData("text/plain", ev.target.innerText);
+     setDragging(ev.target.innerText);
    }, [items.length])
 
    const onDragEnd = useCallback(ev => {
      ev.preventDefault();
-     console.log('Drag ended. Remove item!', dragging, items, props.name, ev);
      if (items.findIndex(i => i === dragging) >= 0) {
         let searching = true;
         setItems(items.filter(i => {
@@ -52,7 +49,6 @@ function ProjectColumn(props) {
     return items.map(i => e(DragBox, {}, i));
   }, [items.length]);
 
-  console.log('Rendering column', props.name, 'with items:', items, 'and dragging', dragging)
   return e('div', {
           className: 'project-column',
           onDragStart,
