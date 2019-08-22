@@ -5,7 +5,7 @@ import ProjectContainer from './components/ProjectContainer'
 
 const node = document.getElementById('project-root');
 const data = [
-  [{title:"Hello World"}],
+  ["Hello World"],
   ["Nice to meet you"]
 ]
 const board = e(ProjectContainer, {data});

@@ -1,6 +1,6 @@
 import { createElement as e, useState, useCallback, useMemo } from 'react'
 import DragBox from "./DragBox"
-import AddButton from "./AddButton"
+import ColumnHeader from "./ColumnHeader"
 
 function dialog(text) {
   // A placeholder for a fancier dialog system. Maybe with a promise?
@@ -47,6 +47,7 @@ function ProjectColumn(props) {
 
    const onDragEnd = useCallback(ev => {
      ev.preventDefault();
+     // TODO: this needs to be reworked to match cards. Use ID not title.
      if (items.findIndex(i => i === dragging) >= 0) {
         let searching = true;
         setItems(items.filter(i => {
@@ -64,7 +65,7 @@ function ProjectColumn(props) {
      return false;
    }, [items.length, dragging]);
 
-  const onClick = useCallback(() => setItems([...items, dialog('New card?')]), [items]);
+  const onClick = useCallback(() => setItems([...items, dialog('New card?')]), []);
   const boxes = useMemo(() => items.map(cardToBox), [items.length]);
 
   return e('div', {
@@ -74,7 +75,7 @@ function ProjectColumn(props) {
           onDragOver: handleDragOver,
           onDrop: handleDrop
       },
-      e(AddButton, {onClick}),
+      e(ColumnHeader, {onClick}),
       ...boxes
     );
 }
