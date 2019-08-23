@@ -1,4 +1,4 @@
-import { createElement as e, useState, useCallback, useMemo } from 'react'
+import { createElement as e, useState, useCallback, useMemo, memo } from 'react'
 import DragBox from "./DragBox"
 import ColumnHeader from "./ColumnHeader"
 
@@ -13,64 +13,35 @@ function handleDragOver(ev) {
   return false;
 }
 
-function cardToBox(cardInfo) {
-  let title;
-  switch (typeof cardInfo) {
-    case "string":
-      title = cardInfo
-      break;
-    case "object":
-      title = cardInfo.title || "UNTITLED"
-      break;
-    default:
-      title = "EMPTY"
-      break;
-  }
-
-  return e(DragBox, {}, title)
+function cardToBox(renderedCard, index: number) {
+  // put the renderedCard into a DragBox
+  return e(DragBox, {index}, renderedCard)
 }
 
 function ProjectColumn(props) {
-  const [items, setItems] = useState(() => [...props.cards]);
-  const [dragging, setDragging] = useState(() => null); // the current item being moved
-
+  const items = props.cards
   const handleDrop = useCallback(ev => {
     ev.preventDefault();
-    setItems([...items, ev.dataTransfer.getData('text/plain')]);
-    return false;
-    }, [items.length]);
+    const info = JSON.parse(ev.dataTransfer.getData('cardInfo'))
+    if (info.columnIndex !== props.columnIndex) props.moveItem(info)
 
-   const onDragStart = useCallback(ev => {
-     ev.dataTransfer.setData("text/plain", ev.target.innerText);
-     setDragging(ev.target.innerText);
-   }, [items.length])
+    return false
+  }, [items.length]);
 
-   const onDragEnd = useCallback(ev => {
+  const onDragEnd = useCallback(ev => {
      ev.preventDefault();
-     // TODO: this needs to be reworked to match cards. Use ID not title.
-     if (items.findIndex(i => i === dragging) >= 0) {
-        let searching = true;
-        setItems(items.filter(i => {
-            if (searching && i === dragging) {
-                searching = false;
-                return false;
-            }
-            return true;
-        }))
-     }
-     else {
-         console.warn('Tried to remove item from column but it did not exist.')
-     }
-     setDragging(null);
      return false;
-   }, [items.length, dragging]);
+  }, []);
 
-  const onClick = useCallback(() => setItems([...items, dialog('New card?')]), []);
+  const onClick =  ev => {
+    const title = dialog('New card?')
+    if (title) props.addItem({title})
+  }
+
   const boxes = useMemo(() => items.map(cardToBox), [items.length]);
 
   return e('div', {
           className: 'project-column',
-          onDragStart,
           onDragEnd,
           onDragOver: handleDragOver,
           onDrop: handleDrop
@@ -80,4 +51,4 @@ function ProjectColumn(props) {
     );
 }
 
-export default ProjectColumn
+export default memo(ProjectColumn)

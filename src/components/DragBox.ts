@@ -3,10 +3,10 @@ import { createElement as e, memo } from 'react'
 
 function DragBox(props) {
   const onDragStart = (ev) => {
-    ev.projectBoard = {id: 42}
+    const info = JSON.stringify({...props.children.props})
+    ev.dataTransfer.setData("cardInfo", info)
   }
-  const title = e('h1', {}, props.children)
-  return e('div', {className: 'dragbox', draggable: true, onDragStart}, title);
+  return e('div', {className: 'dragbox', draggable: true, onDragStart}, props.children);
 }
 
 export default memo(DragBox)
