@@ -23,6 +23,7 @@ function ProjectColumn(props) {
   const handleDrop = useCallback(ev => {
     ev.preventDefault();
     const info = JSON.parse(ev.dataTransfer.getData('cardInfo'))
+    info.spacerIndex = ev.spacerSlot
     if (info.columnIndex !== props.columnIndex) props.moveItem(info)
 
     return false

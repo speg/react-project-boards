@@ -19,12 +19,25 @@
   overflow-y: scroll;
 }
 
-.dragbox {
-  width: 90%;
-  height: 100px;
+.demo-card {
   background-color: lightgrey;
   border-radius: 6px;
   border: 1px solid white;
   padding: 6px;
-  margin: 6px;
+}
+
+.dragbox {
+  width: 90%;
+}
+
+.pb-spacer {
+  height: 20px;
+  transition-property: height;
+  transition-duration: 0s;
+  visibility: hidden;
+}
+
+.pb-spacer.grow {
+  height: 150px;
+  transition-duration: 1s;
 }

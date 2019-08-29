@@ -20,8 +20,16 @@ export const useCardsInColumns = function useCardsInColumns(rawCardData, rendere
           setData(prevState => {
               const oldColumn = item.columnIndex
               if (oldColumn === columnIndex) return prevState
+
               const newState = prevState.map(c => c.map(i => i))    // need to copy the old state so we have a new object. OR DO WE?!
-              newState[columnIndex] = [...prevState[columnIndex], item] // add the new item to this column
+              if (item.spacerIndex !== false) {
+                // splice it in
+                newState[columnIndex].splice(item.spacerIndex + 1, 0, item)
+              } else {
+                newState[columnIndex] = [...prevState[columnIndex], item] // add the new item to this column
+              }
+
+              // remove item from old column
               newState[oldColumn] = prevState[oldColumn].filter(i => i._id !== item._id)
               return newState
           })

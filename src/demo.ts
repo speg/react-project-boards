@@ -6,7 +6,9 @@ import ProjectContainer from './components/ProjectContainer'
 const node = document.getElementById('project-root');
 const data = [
   [{title: "Hello World", text: "What a nice day."}],
-  [{title: "Nice to meet you", text: "I like your shoes."}]
+  [{title: "Nice to meet you", text: "I like your shoes."},
+   {title: "All Around The World", text: "🎵🎸👨🏽‍🎤"}
+  ]
 ]
 
 function renderer(props) {
